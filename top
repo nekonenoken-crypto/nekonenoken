@@ -1,10 +1,331 @@
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <title>私のホームページ</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>星鏡スピカ | Official Site</title>
+<script async src="https://platform.twitter.com/widgets.js"></script>
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+html{
+scroll-behavior:smooth;
+}
+body{
+font-family:"Times New Roman",serif;
+background:linear-gradient(
+180deg,
+#050509 0%,
+#120d1d 45%,
+#1f1230 100%
+);
+color:white;
+overflow-x:hidden;
+}
+body::before{
+content:"";
+position:fixed;
+inset:0;
+pointer-events:none;
+background:
+radial-gradient(circle at 20% 20%,rgba(255,180,220,.08),transparent 25%),
+radial-gradient(circle at 80% 30%,rgba(212,140,255,.06),transparent 25%),
+radial-gradient(circle at 50% 80%,rgba(230,196,255,.08),transparent 30%);
+z-index:-1;
+}
+.hero{
+min-height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:40px 20px;
+}
+.character{
+width:min(90vw,650px);
+display:block;
+margin:auto;
+filter:
+drop-shadow(0 0 25px rgba(255,255,255,.5))
+drop-shadow(0 0 60px rgba(255,180,220,.4));
+animation:float 6s ease-in-out infinite;
+}
+@keyframes float{
+0%,100%{transform:translateY(0);}
+50%{transform:translateY(-15px);}
+}
+h1{
+font-size:clamp(60px,10vw,120px);
+margin-top:20px;
+text-shadow:
+0 0 15px rgba(255,255,255,.8),
+0 0 45px rgba(255,180,220,.4);
+}
+.roman{
+margin-top:15px;
+letter-spacing:8px;
+color:#dccbff;
+}
+.subtitle{
+margin-top:20px;
+font-size:26px;
+}
+.tagline{
+margin-top:25px;
+font-size:22px;
+line-height:1.8;
+}
+.card{
+width:min(1000px,92%);
+margin:40px auto;
+padding:45px 30px;
+border-radius:30px;
+background:rgba(255,255,255,.05);
+backdrop-filter:blur(15px);
+border:1px solid rgba(255,255,255,.08);
+}
+.card h2{
+text-align:center;
+font-size:42px;
+margin-bottom:25px;
+}
+.card p{
+text-align:center;
+font-size:20px;
+line-height:2;
+}
+.news-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
+}
+.news-box{
+padding:25px;
+border-radius:20px;
+background:rgba(255,255,255,.05);
+text-align:center;
+}
+.links{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:20px;
+}
+.link-btn{
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:70px;
+padding:20px;
+text-align:center;
+border-radius:999px;
+background:rgba(255,180,220,.15);
+border:2px solid rgba(255,180,220,.4);
+color:white !important;
+text-decoration:none;
+font-size:20px;
+font-weight:bold;
+box-shadow:0 0 15px rgba(255,180,220,.25);
+}
+iframe{
+width:100%;
+height:600px;
+border:none;
+border-radius:20px;
+}
+.agency{
+font-size:16px;
+font-weight:500;
+letter-spacing:6px;
+color:#dccbff;
+
+margin-top:-10px;
+margin-bottom:-25px;
+
+text-shadow:
+0 0 8px rgba(220,203,255,.5);
+
+opacity:.9;
+}
+footer{
+text-align:center;
+padding:80px 20px;
+}
+@media(max-width:768px){
+.news-grid{
+grid-template-columns:1fr;
+}
+.links{
+grid-template-columns:1fr;
+}
+.card h2{
+font-size:30px;
+}
+.card p{
+font-size:18px;
+}
+iframe{
+height:300px;
+}
+}
+</style>
 </head>
 <body>
-    <h1>こんにちは！私のホームページへようこそ！</h1>
+<section class="hero">
+<img src="IMG_1250.png" class="character">
+<div class="agency">
+LOCUS MEUS 所属
+</div>
+  <h1>星鏡スピカ</h1>
+<div class="roman">
+HOSHIGANE SPICA
+</div>
+<div class="subtitle">
+✦ Angel VTuber ✦
+</div>
+<div class="tagline">
+星々の光に導かれながら、<br>
+今日もあなたの帰る場所になる。
+</div>
+</section>
+<section class="card">
+<h2>✦ PROFILE ✦</h2>
+<p>
+
+星々の光に導かれながら、
+歌・雑談・ゲームを届ける天使VTuber。
+
+少しおっちょこちょいで、
+少し甘やかし上手。
+
+ラムズのみんなが安心して帰ってこられる場所を
+今日も作っています。
+
+</p>
+</section>
+  <section class="card">
+<h2>✦ CHANNEL ✦</h2>
+
+<p id="subscribers">
+Loading...
+</p>
+
+</section>
+<section class="card">
+<h2>✦ MOVIE ✦</h2>
+<p style="margin-bottom:25px;">
+配信中ならライブが表示されます
+</p>
+<iframe
+id="latest-video"
+src=""
+allowfullscreen>
+</iframe>
+</section>
+<section class="card">
+<h2>✦ COMMUNITY ✦</h2>
+<p>
+
+✦ FAN NAME ✦
+
+ラムズ
+
+✦ HASHTAG ✦
+
+#鏡の中のスピカ
+
+<br>
+
+#MirrorOfSpica
+
+</p>
+</section>
+<section class="card">
+<h2>✦ LINK ✦</h2>
+<div class="links">
+<a class="link-btn" href="https://youtube.com/@spica_hoshigane" target="_blank">
+▶ YouTube
+</a>
+<a class="link-btn" href="https://web.iriam.app/s/user/QAHoReYrJj?uuid=7249a9ee" target="_blank">
+🎤 IRIAM
+</a>
+<a class="link-btn" href="https://x.com/hoshigane_spica" target="_blank">
+✦ X
+</a>
+<a class="link-btn" href="https://www.tiktok.com/@hoshigane_spica" target="_blank">
+🎵 TikTok
+</a>
+<a class="link-btn" href="https://hoshiganespica.booth.pm/" target="_blank">
+🛍 BOOTH
+</a>
+<a class="link-btn" href="https://marshmallow-qa.com/wcor8kzzwjwskmo" target="_blank">
+💌 Marshmallow
+</a>
+<a class="link-btn" href="https://gi-pt.com/main/wishlist/fan-view/3a218f3a-9728-44a8-a94d-6db3e871af46" target="_blank">
+🎁 Wish List
+</a>
+</div>
+</section>
+<footer>
+<h3>
+✦ Thank you Lambs ✦
+</h3>
+<br>
+<div>
+May the stars guide your way.
+</div>
+<br>
+<div>#鏡の中のスピカ</div>
+<div>#MirrorOfSpica</div>
+<br>
+<div>
+© Hoshigane Spica
+</div>
+</footer>
+  <script>
+const API_KEY = "AIzaSyBAi8jAXKv5vzqleCz13wl9UkbRzYQwyB0";
+const CHANNEL_ID = "UCJzOL9EyZJA-KqLi97Mw5Zw";
+
+async function loadYouTubeData() {
+  try {
+
+    const channelRes = await fetch(
+      `https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${CHANNEL_ID}&key=${API_KEY}`
+    );
+    const channelData = await channelRes.json();
+
+    const subs =
+      channelData.items?.[0]?.statistics?.subscriberCount || "404";
+
+    const subElement = document.getElementById("subscribers");
+    if(subElement){
+      subElement.textContent =
+        Number(subs).toLocaleString() + " Subscribers";
+    }
+
+    const videoRes = await fetch(
+      `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${CHANNEL_ID}&maxResults=1&order=date&type=video&key=${API_KEY}`
+    );
+
+    const videoData = await videoRes.json();
+
+    const videoId = videoData.items?.[0]?.id?.videoId;
+
+    if(videoId){
+      document.getElementById("latest-video").src =
+        `https://www.youtube.com/embed/${videoId}`;
+    }
+
+  } catch(err){
+    console.log(err);
+  }
+}
+
+loadYouTubeData();
+</script>
 </body>
 </html>
